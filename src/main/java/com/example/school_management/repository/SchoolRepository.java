@@ -14,7 +14,7 @@ public class SchoolRepository {
         this.schoolMapper = schoolMapper;
     }
 
-    public List<School> selectALLSchools() {
-        return schoolMapper.selectALLSchools();
+    public List<School> selectAllSchools() {
+        return schoolMapper.selectAllSchools();
     }
 }
