@@ -10,5 +10,5 @@ import java.util.List;
 public interface SchoolMapper {
 
     @Select("SELECT * FROM schools")
-    List<School> selectALLSchools();
+    List<School> selectAllSchools();
 }
