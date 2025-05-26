@@ -15,7 +15,7 @@ public class SchoolService {
         this.schoolRepository = schoolRepository;
     }
 
-    public List<School> selectALLSchools() {
-        return schoolRepository.selectALLSchools();
+    public List<School> getAllSchools() {
+        return schoolRepository.getAllSchools();
     }
 }

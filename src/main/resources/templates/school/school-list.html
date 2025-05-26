@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学校管理</title>
+</head>
+<body>
+    <h1>学校管理アプリ</h1>
+
+    <table>
+        <tr>
+            <th>学校ID</th>
+            <th>学校名</th>
+        </tr>
+        <tr th:each="school: ${schools}">
+            <td th:text="${school.schoolId}">学校ID</td>
+            <td th:text="${school.schoolName}">学校名</td>
+        </tr>
+    </table>
+</body>
+</html>
