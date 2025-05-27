@@ -17,4 +17,9 @@ public class SchoolRepository {
     public List<School> getAllSchools() {
         return schoolMapper.selectAllSchools();
     }
+
+    public void insertSchool(School school){
+        schoolMapper.insertSchool(school);
+    }
 }
+

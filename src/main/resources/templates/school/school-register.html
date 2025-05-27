@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>学校登録</h2>
+    <form th:action="@{/schools/register}" th:object="${schoolForm}" method="POST">
+      <div>
+        <label for="school-name">学校名</label>
+        <input type="text" id="school-name" name="school-name" th:field="*{schoolName}">
+      </div>
+      <div>
+        <label for="address">住所</label>
+        <input type="text" id="address" name="address" th:field="*{address}">
+      </div>
+      <div>
+          <label for="tel">電話番号</label>
+          <input type="text" id="tel" name="tel" th:field="*{tel}">
+      </div>
+        <button type="submit">登録</button>
+    </form>
+</body>
+</html>
