@@ -24,4 +24,12 @@ public class SchoolController {
         model.addAttribute("schools", schools);
         return "school/school-list";
     }
+
+    //学校登録
+    @GetMapping("/new")
+    public String registerSchoolForm(Model model) {
+        School school = new School();
+        model.addAttribute("school", new School());
+        return "school/school-register";
+    }
 }
