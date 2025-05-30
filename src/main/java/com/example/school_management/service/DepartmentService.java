@@ -1,6 +1,7 @@
 package com.example.school_management.service;
 
 import com.example.school_management.entity.Department;
+import com.example.school_management.form.DepartmentForm;
 import com.example.school_management.repository.DepartmentRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,15 @@ public class DepartmentService {
 
     public List<Department> getAllDepartments(long schoolId) {
         return departmentRepository.selectAllDepartment(schoolId);
+    }
+
+    public  void insertDepartment(DepartmentForm departmentForm){
+        Department department = new Department();
+
+        department.setDepartmentName(departmentForm.getDepartmentName());
+        department.setYears(departmentForm.getYears());
+        department.setSchoolId(departmentForm.getSchoolId());
+
+        departmentRepository.insertDepartment(department);
     }
 }
