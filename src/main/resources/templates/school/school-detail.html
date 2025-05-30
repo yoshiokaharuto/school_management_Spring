@@ -25,5 +25,17 @@
             <td th:text="${school.tel}"></td>
         </tr>
     </table>
+    <table border="1">
+        <tr>
+            <th>学科名</th>
+            <th>年数</th>
+        </tr>
+        <tr th:each="department :${departments}">
+            <td><span th:text="${department.departmentName}">学科名</span></td>
+            <td><span th:text="${department.years}">年数</span></td>
+        </tr>
+    </table>
+
+
 </body>
 </html>
