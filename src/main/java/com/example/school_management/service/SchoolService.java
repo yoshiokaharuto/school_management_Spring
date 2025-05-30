@@ -27,4 +27,7 @@ public class SchoolService {
         school.setTel(schoolForm.getTel());
         schoolRepository.insertSchool(school);
     }
+    public School selectSchoolById(long schoolId){
+        return schoolRepository.selectSchoolById(schoolId);
+    }
 }
