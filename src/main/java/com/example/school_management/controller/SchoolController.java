@@ -1,7 +1,9 @@
 package com.example.school_management.controller;
 
+import com.example.school_management.entity.Department;
 import com.example.school_management.entity.School;
 import com.example.school_management.form.SchoolForm;
+import com.example.school_management.service.DepartmentService;
 import com.example.school_management.service.SchoolService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +18,12 @@ import java.util.List;
 @RequestMapping("/schools")
 public class SchoolController {
     private final SchoolService schoolService;
+    private final DepartmentService departmentService;
+//    private final DepartmentService departmentService;
 
-    public SchoolController(SchoolService schoolService) {
+    public SchoolController(SchoolService schoolService, DepartmentService departmentService) {
         this.schoolService = schoolService;
+        this.departmentService = departmentService;
     }
 
     @GetMapping
@@ -42,19 +47,26 @@ public class SchoolController {
         return "redirect:/schools";
     }
 
+    //学校詳細
     @GetMapping("/{schoolId}")
     public String schoolDetail(@PathVariable long schoolId,Model model){
         School school = schoolService.selectSchoolById(schoolId);
+        List<Department> departments = departmentService.getAllDepartments(schoolId);
+
         model.addAttribute("school", school);
+        model.addAttribute("departments", departments);
+
         return "school/school-detail";
     }
 
+    //学校削除
     @PostMapping("{schoolId}/delete")
     public String deleteSchool(@PathVariable long schoolId){
         schoolService.deleteSchoolById(schoolId);
         return"redirect:/schools";
     }
 
+    //学校の編集
     @GetMapping("{schoolId}/update")
     public String editSchool(@PathVariable long schoolId,Model model){
         School school = schoolService.selectSchoolById(schoolId);
@@ -62,10 +74,12 @@ public class SchoolController {
         return "school/school-edit";
     }
 
-
     @PostMapping("{schoolId}/update")
     public String updateSchool(@PathVariable long schoolId, School school){
         schoolService.updateSchool(schoolId,school);
         return "redirect:/schools";
     }
+
+
+    //学科一覧
 }
