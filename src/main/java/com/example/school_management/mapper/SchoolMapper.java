@@ -14,4 +14,7 @@ public interface SchoolMapper {
 
     @Insert("INSERT INTO schools (school_name,address,tel) VALUES (#{schoolName},#{address},#{tel})")
     void insertSchool(School school);
+
+    @Select("SELECT * FROM schools WHERE school_id = #{schoolId}")
+    School selectSchoolById(long id);
 }
