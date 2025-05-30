@@ -2,6 +2,7 @@ package com.example.school_management.controller;
 
 import com.example.school_management.entity.Department;
 import com.example.school_management.entity.School;
+import com.example.school_management.form.DepartmentForm;
 import com.example.school_management.form.SchoolForm;
 import com.example.school_management.service.DepartmentService;
 import com.example.school_management.service.SchoolService;
@@ -80,6 +81,23 @@ public class SchoolController {
         return "redirect:/schools";
     }
 
+    //////////////////////////////////////////
 
-    //学科一覧
+    //学科登録
+    @GetMapping("/{schoolId}/department/register")
+    public String registerDepartmentForm(@PathVariable long schoolId,Model model){
+        DepartmentForm departmentForm = new DepartmentForm();
+
+        model.addAttribute("departmentForm", departmentForm);
+
+        return "department/department-register";
+    }
+
+    @PostMapping("/{schoolId}/department/register")
+    public String registerDepartment(@PathVariable long schoolId,DepartmentForm departmentForm){
+
+        departmentService.insertDepartment(departmentForm);
+
+        return "redirect:/schools/"+schoolId;
+    }
 }
