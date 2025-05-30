@@ -48,4 +48,10 @@ public class SchoolController {
         model.addAttribute("school", school);
         return "school/school-detail";
     }
+
+    @PostMapping("{schoolId}/delete")
+    public String deleteSchool(@PathVariable long schoolId){
+        schoolService.deleteSchoolById(schoolId);
+        return"redirect:/schools";
+    }
 }
