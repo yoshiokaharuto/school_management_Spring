@@ -14,10 +14,18 @@
         <tr>
             <th>学校ID</th>
             <th>学校名</th>
+            <th></th>
         </tr>
         <tr th:each="school: ${schools}">
             <td th:text="${school.schoolId}">学校ID</td>
             <td><a th:href="@{schools/{schoolId}(schoolId=${school.schoolId})}"><span th:text="${school.schoolName}">学校名</span></a></td>
+            <td>
+                <div>
+                    <form th:action="@{schools/{schoolId}/delete(schoolId = ${school.schoolId})}" method="post">
+                        <button type="submit">削除</button>
+                    </form>
+                </div>
+            </td>
         </tr>
     </table>
 </body>

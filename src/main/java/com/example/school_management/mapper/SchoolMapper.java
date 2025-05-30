@@ -17,4 +17,7 @@ public interface SchoolMapper {
 
     @Select("SELECT * FROM schools WHERE school_id = #{schoolId}")
     School selectSchoolById(long id);
+
+    @Delete("DELETE FROM schools WHERE school_id = #{schoolId}")
+    void deleteSchoolById(long id);
 }

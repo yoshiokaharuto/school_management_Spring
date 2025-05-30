@@ -30,4 +30,7 @@ public class SchoolService {
     public School selectSchoolById(long schoolId){
         return schoolRepository.selectSchoolById(schoolId);
     }
+    public void deleteSchoolById(long schoolId) {
+        schoolRepository.deleteSchoolById(schoolId);
+    }
 }
