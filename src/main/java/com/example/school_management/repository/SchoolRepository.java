@@ -29,5 +29,8 @@ public class SchoolRepository {
     public void deleteSchoolById(long id) {
         schoolMapper.deleteSchoolById(id);
     }
+    public void updateSchool(School school){
+        schoolMapper.updateSchool(school);
+    }
 }
 
