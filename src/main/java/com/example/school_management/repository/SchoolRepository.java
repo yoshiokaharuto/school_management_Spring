@@ -25,5 +25,9 @@ public class SchoolRepository {
     public School selectSchoolById(long schoolId){
         return schoolMapper.selectSchoolById(schoolId);
     }
+
+    public void deleteSchoolById(long id) {
+        schoolMapper.deleteSchoolById(id);
+    }
 }
 
