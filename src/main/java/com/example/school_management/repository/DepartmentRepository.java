@@ -17,4 +17,8 @@ public class DepartmentRepository {
     public List<Department> selectAllDepartment(long schoolId){
         return departmentMapper.selectAllDepartment(schoolId);
     }
+
+    public  void insertDepartment(Department department){
+        departmentMapper.insertDepartment(department);
+    }
 }
