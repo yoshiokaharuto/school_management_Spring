@@ -21,5 +21,9 @@ public class SchoolRepository {
     public void insertSchool(School school){
         schoolMapper.insertSchool(school);
     }
+
+    public School selectSchoolById(long schoolId){
+        return schoolMapper.selectSchoolById(schoolId);
+    }
 }
 

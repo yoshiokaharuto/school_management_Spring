@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="~{layout::header}"></div>
+    <h2>学校詳細</h2>
+    <table border="1">
+        <tr>
+            <th class="table-light">学校ID</th>
+            <td th:text="${school.schoolId}"></td>
+        </tr>
+        <tr>
+            <th class="table-light">学校名</th>
+            <td th:text="${school.schoolName}"></td>
+        </tr>
+        <tr>
+            <th class="table-light">住所</th>
+            <td th:text="${school.address}"></td>
+        </tr>
+        <tr>
+            <th class="table-light">電話番号</th>
+            <td th:text="${school.tel}"></td>
+        </tr>
+    </table>
+</body>
+</html>

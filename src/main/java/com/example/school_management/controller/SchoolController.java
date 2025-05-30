@@ -6,6 +6,7 @@ import com.example.school_management.service.SchoolService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,5 +40,12 @@ public class SchoolController {
     public String registerSchool(SchoolForm schoolForm,Model model){
         schoolService.createSchool(schoolForm);
         return "redirect:/schools";
+    }
+
+    @GetMapping("/{schoolId}")
+    public String schoolDetail(@PathVariable long schoolId,Model model){
+        School school = schoolService.selectSchoolById(schoolId);
+        model.addAttribute("school", school);
+        return "school/school-detail";
     }
 }

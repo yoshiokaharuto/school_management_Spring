@@ -10,5 +10,5 @@ public class School {
     private String SchoolName;
     private String Address;
     private String tel;
-    private LocalDateTime created;
+    private LocalDateTime createdAt;
 }
