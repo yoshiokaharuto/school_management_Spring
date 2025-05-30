@@ -20,4 +20,7 @@ public interface SchoolMapper {
 
     @Delete("DELETE FROM schools WHERE school_id = #{schoolId}")
     void deleteSchoolById(long id);
+
+    @Update("UPDATE schools SET school_name = #{schoolName},address=#{address},tel=#{tel} WHERE school_id = #{schoolId}")
+    void updateSchool(School school);
 }
