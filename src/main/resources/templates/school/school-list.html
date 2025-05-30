@@ -25,6 +25,11 @@
                         <button type="submit">削除</button>
                     </form>
                 </div>
+                <div>
+                    <form th:action="@{schools/{schoolId}/update(schoolId = ${school.schoolId})}" method="get">
+                        <button type="submit">編集</button>
+                    </form>
+                </div>
             </td>
         </tr>
     </table>
