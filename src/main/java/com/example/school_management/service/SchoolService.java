@@ -33,4 +33,10 @@ public class SchoolService {
     public void deleteSchoolById(long schoolId) {
         schoolRepository.deleteSchoolById(schoolId);
     }
+    public void updateSchool(long schoolId,School school){
+        if ( schoolId !=  school.getSchoolId()) {
+            throw new IllegalArgumentException("School id not match");
+        }
+        schoolRepository.updateSchool(school);
+    }
 }
