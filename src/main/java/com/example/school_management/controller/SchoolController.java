@@ -54,4 +54,18 @@ public class SchoolController {
         schoolService.deleteSchoolById(schoolId);
         return"redirect:/schools";
     }
+
+    @GetMapping("{schoolId}/update")
+    public String editSchool(@PathVariable long schoolId,Model model){
+        School school = schoolService.selectSchoolById(schoolId);
+        model.addAttribute("school", school);
+        return "school/school-edit";
+    }
+
+
+    @PostMapping("{schoolId}/update")
+    public String updateSchool(@PathVariable long schoolId, School school){
+        schoolService.updateSchool(schoolId,school);
+        return "redirect:/schools";
+    }
 }
