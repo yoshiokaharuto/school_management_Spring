@@ -25,14 +25,23 @@
             <td th:text="${school.tel}"></td>
         </tr>
     </table>
+
     <table border="1">
         <tr>
             <th>学科名</th>
             <th>年数</th>
+            <th></th>
         </tr>
         <tr th:each="department :${departments}">
             <td><span th:text="${department.departmentName}">学科名</span></td>
             <td><span th:text="${department.years}">年数</span></td>
+            <td>
+                <div>
+                    <form th:action="@{/schools/{schoolId}/department/{departmentId}/delete(schoolId = ${school.schoolId},departmentId = ${department.departmentId})}" method="post">
+                        <button type="submit">削除</button>
+                    </form>
+                </div>
+            </td>
         </tr>
     </table>
 
