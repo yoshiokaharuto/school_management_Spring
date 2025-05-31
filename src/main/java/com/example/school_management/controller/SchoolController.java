@@ -100,4 +100,12 @@ public class SchoolController {
 
         return "redirect:/schools/"+schoolId;
     }
+
+    @PostMapping("/{schoolId}/department/{departmentId}/delete")
+    public String deleteDepartment(@PathVariable long schoolId,@PathVariable long departmentId){
+
+        departmentService.deleteDepartment(departmentId);
+
+        return "redirect:/schools/"+schoolId;
+    }
 }
