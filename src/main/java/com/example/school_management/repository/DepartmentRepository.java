@@ -21,4 +21,8 @@ public class DepartmentRepository {
     public  void insertDepartment(Department department){
         departmentMapper.insertDepartment(department);
     }
+
+    public void deleteDepartment(long departmentId){
+        departmentMapper.deleteDepartment(departmentId);
+    }
 }

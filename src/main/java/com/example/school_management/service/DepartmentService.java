@@ -28,4 +28,8 @@ public class DepartmentService {
 
         departmentRepository.insertDepartment(department);
     }
+
+    public void deleteDepartment(long departmentId){
+        departmentRepository.deleteDepartment(departmentId);
+    }
 }
