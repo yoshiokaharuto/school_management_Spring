@@ -25,4 +25,11 @@ public class DepartmentRepository {
     public void deleteDepartment(long departmentId){
         departmentMapper.deleteDepartment(departmentId);
     }
+
+    public Department selectDepartmentById(long departmentId){
+        return departmentMapper.selectDepartmentById(departmentId);
+    }
+    public void updateDepartment(Department department){
+        departmentMapper.updateDepartment(department);
+    }
 }
