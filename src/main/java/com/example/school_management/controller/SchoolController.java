@@ -101,10 +101,28 @@ public class SchoolController {
         return "redirect:/schools/"+schoolId;
     }
 
+    //学科削除
     @PostMapping("/{schoolId}/department/{departmentId}/delete")
     public String deleteDepartment(@PathVariable long schoolId,@PathVariable long departmentId){
 
         departmentService.deleteDepartment(departmentId);
+
+        return "redirect:/schools/"+schoolId;
+    }
+
+    //学科編集
+    @GetMapping("/{schoolId}/department/{departmentId}/edit")
+    public String editDepartmentForm(@PathVariable long schoolId,@PathVariable long departmentId,Model model){
+
+        Department department = departmentService.selectDepartmentById(departmentId);
+        model.addAttribute("department", department);
+        return "department/department-edit";
+    }
+
+    @PostMapping("/{schoolId}/department/{departmentId}/edit")
+    public String updateDepartment(@PathVariable long schoolId,@PathVariable long departmentId,Department department){
+
+        departmentService.updateDepartment(departmentId,department);
 
         return "redirect:/schools/"+schoolId;
     }
