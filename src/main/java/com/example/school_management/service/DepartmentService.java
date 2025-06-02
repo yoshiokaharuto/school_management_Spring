@@ -32,4 +32,14 @@ public class DepartmentService {
     public void deleteDepartment(long departmentId){
         departmentRepository.deleteDepartment(departmentId);
     }
+
+    public Department selectDepartmentById(long departmentId){
+        return departmentRepository.selectDepartmentById(departmentId);
+    }
+    public void updateDepartment(long departmentId,Department department){
+        if(departmentId != department.getDepartmentId()){
+            throw new IllegalArgumentException("Music Id does not match");
+        }
+        departmentRepository.updateDepartment(department);
+    }
 }
