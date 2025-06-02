@@ -1,10 +1,7 @@
 package com.example.school_management.mapper;
 
 import com.example.school_management.entity.Department;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,4 +16,10 @@ public interface DepartmentMapper {
 
     @Delete("DELETE FROM departments WHERE department_id = #{departmentId}")
     void deleteDepartment(long departmentId);
+
+    @Select("SELECT * FROM departments WHERE department_id = #{departmentId}")
+    Department selectDepartmentById(long departmentId);
+
+    @Update("UPDATE departments SET department_name = #{departmentName}, years = #{years} WHERE department_id = #{departmentId}")
+    void updateDepartment(Department department);
 }
